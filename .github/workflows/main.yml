@@ -1,0 +1,46 @@
+name: Sync Fork
+
+on:
+  schedule:
+    #    - cron:  '0,10,20,30,40,50 * * * *'
+    - cron:  '0 * * * *'
+    # 분, 시간, 날짜(월), 월, 요일
+  workflow_dispatch:
+
+jobs:
+  sync_latest_from_upstream:
+    runs-on: ubuntu-latest
+    name: Sync latest commits from upstream repo
+
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          ref:  main
+          persist-credentials: true
+
+      - name: Sync upstream changes
+        id: sync
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          target_sync_branch: main
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          upstream_sync_branch: main
+          upstream_sync_repo: Dokyung-Hwang/CSAlgo
+          upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
+          test_mode: false
+
+      - name: New commits found
+        if: steps.sync.outputs.has_new_commits == 'true'
+        run: echo "New commits were found to sync."
+
+      - name: No new commits
+        if: steps.sync.outputs.has_new_commits == 'false'
+        run: echo "There were no new commits."
+
+      - name: Show value of 'has_new_commits'
+        run: echo ${{ steps.sync.outputs.has_new_commits }}
+
+      - name: Set new_commits flag
+        id: set_new_commits
+        run: echo "::set-output name=has_new_commits::${{ steps.sync.outputs.has_new_commits }}"
