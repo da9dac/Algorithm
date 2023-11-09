@@ -3,13 +3,12 @@ package algorithm.solution.da9dac.bfs;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 import algorithm.problem.baekjoon.bfs.P9466;
 
 public class S9466 implements P9466 {
+	// https://da9dac.tistory.com/243
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -40,20 +39,16 @@ public class S9466 implements P9466 {
 				}
 			}
 
-			Queue<Integer> queue = new ArrayDeque<>();
-
 			for (int j = 0; j < n; j++) {
 				if (isCycle[j] || isNotCycle[j]) continue;
 
-				queue.offer(students[j]);
+				int select = students[j];
 
 				arr[0] = j;
 
 				int size = 1;
 
-				while (!queue.isEmpty()) {
-					int select = queue.poll();
-
+				while (true) {
 					if (isCycle[select] || isNotCycle[select]) {
 						for (int k = 0; k < size; k++) {
 							isNotCycle[arr[k]] = true;
@@ -75,7 +70,7 @@ public class S9466 implements P9466 {
 					}
 
 					arr[size++] = select;
-					queue.offer(students[select]);
+					select = students[select];
 				}
 			}
 
