@@ -54,21 +54,6 @@
 
 <br/>
 
-## 🗂️ 시즌1 DOCS (2023 4분기)
-- [시즌1 진행 상황](https://github.com/CodeSquad-2023-BE-Study/Algorithm-Study/blob/main/docs/%EC%A7%84%ED%96%89%EC%83%81%ED%99%A9/%EC%8B%9C%EC%A6%8C1_2%EC%9B%94-7%EC%9B%94_%EC%A7%84%ED%96%89%EC%83%81%ED%99%A9.md)
-- [시즌1 일정표](https://github.com/CodeSquad-2023-BE-Study/Algorithm-Study/blob/main/docs/%EB%AC%B8%EC%A0%9C/%EC%8B%9C%EC%A6%8C1_2%EC%9B%94-7%EC%9B%94_%EB%AC%B8%EC%A0%9C.md)
-- [schedule](https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md)
-
-<br/>
-
-## 📌 스터디 규칙
-- 스터디는 온라인으로 2시간 진행한다.
-    - 1시간 30분: 문제 풀이
-    - 30분: 당일 알고리즘 풀이 공유
-- 당일에 알고리즘 문제 2~3개 선정하여 푼다.
-
-<br/>
-
 ## 🔍 참여 방법
 1. 이 저장소를 `fork` 혹은 `clone` 한다.
 2. 생성된 저장소의 `src/algorithm/solution/Github ID`로 패키지를 생성한다.
@@ -85,47 +70,22 @@ src/algorithm/solution/Github ID/{S문제번호/문제명.java}
 
 <br/>
 
-## ⚠️ commit 컨벤션
+## ⚠️ 문제 인터페이스와 풀이 구현 클래스
 
 ```
-{태그}: {클래스 이름(플랫폼_문제 번호_문제 제목)} {커밋 메시지}
+src/algorithm/problem/알고리즘 유형/{P문제번호/문제명.java}
 ```
 
-- 플랫폼에 따라 없는 내용은 생략 가능
-- 💡 예시: `✨feat: BOJ_10885`
+- 💡 예시: `src/algorithm/problem/graph/P10885.java`
 
-### 플랫폼
-
-| 플랫폼    | 태그  |
-|:-------|:----|
-| 백준     | BOJ |
-| 프로그래머스 | PGS |
-| 리트코드   | LTC |
-
-### 이모지 및 태그
-
-- 이모지는 선택에 따라 활용한다.
-
-| 이모지 | 태그       | 설명                      |
-|:----|:---------|:------------------------|
-| ✨   | feat     | 새로운 기능 추가               |
-| 🐛  | fix      | 버그 수정                   |
-| ♻️  | refactor | 코드 리팩토링                 |
-| ✏️  | comment  | 주석 추가(코드 변경 X) 혹은 오타 수정 |
-| 📝  | docs     | README와 같은 문서 수정        |
-| 🔀  | merge    | merge                   |
-| 🚚  | rename   | 파일, 폴더명 수정 혹은 이동        |
-
-
-<br/>
-
-## ⚠️ PR 규칙
 
 ```
-[날짜] {플랫폼 or 언어} {문제 제목} - {기타 내용}
+src/algorithm/solution/Github ID/알고리즘 유형/{S문제번호/문제명.java}
 ```
 
-- 💡 예시: `[230809|이름] PGS 다트 게임 - 1문제`
+- 💡 예시: `src/algorithm/solution/da9dac/graph/S10885.java`
+
+- 구현 클래스를 각자 패키지에 구현해 서로 편하게 풀이를 찾아 볼 수 있게 관리
 
 ---
 
